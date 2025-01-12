@@ -1,0 +1,83 @@
+{
+    "name": "sonus-web",
+    "displayName": "Sonus",
+    "description": "Embed Sonus Chat (https://chat.sonus.ai/) in VS Code.",
+    "version": "0.0.1",
+    "publisher": "Kingleo",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/KingLeoJr/vscode-sonus-web.git"
+    },
+    "engines": {
+      "vscode": "^1.75.0"
+    },
+    "categories": [
+      "Other"
+    ],
+    "activationEvents": [
+      "onCommand:sonus.openChat",
+      "onView:sonusChatView"
+    ],
+    "main": "./out/extension.js",
+    "icon": "images/icon.png",
+    "galleryBanner": {
+      "color": "#FFFFFF",
+      "theme": "light"
+    },
+    "contributes": {
+      "configuration": {
+        "title": "Sonus",
+        "properties": {
+          "sonusWeb.chatUrl": {
+            "type": "string",
+            "default": "https://chat.sonus.ai/",
+            "description": "The URL of the Sonus Chat instance to embed."
+          }
+        }
+      },
+      "commands": [
+        {
+          "command": "sonus.openChat",
+          "title": "Open Sonus Chat"
+        }
+      ],
+      "viewsContainers": {
+        "activitybar": [
+          {
+            "id": "sonusWeb",
+            "title": "Sonus",
+            "icon": "images/activitybar-icon.svg"
+          }
+        ]
+      },
+      "views": {
+        "sonusWeb": [
+          {
+            "id": "sonusChatView",
+            "name": "Sonus Chat",
+            "type": "webview"
+          }
+        ]
+      }
+    },
+    "scripts": {
+      "compile": "tsc -p ./",
+      "watch": "tsc -watch -p ./",
+      "package": "vsce package"
+    },
+    "devDependencies": {
+      "@types/vscode": "^1.75.0",
+      "typescript": "^4.9.4",
+      "vsce": "^2.15.0"
+    },
+    "keywords": [
+      "sonus",
+      "chat",
+      "web",
+      "ai",
+      "assistant",
+      "vscode",
+      "extension"
+    ],
+    "license": "MIT"
+  }
